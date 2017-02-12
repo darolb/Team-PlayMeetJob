@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{3B862D02-E64C-728F-3D46-E566D7E13E59}") = "Leap_test4", "Assembly-CSharp.csproj", "{C35958AE-F490-0439-2C41-97702F3864A5}"
+EndProject
+Project("{3B862D02-E64C-728F-3D46-E566D7E13E59}") = "Leap_test4", "Assembly-CSharp-Editor.csproj", "{853EB848-EFCF-3011-123F-DF327A159ECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C35958AE-F490-0439-2C41-97702F3864A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C35958AE-F490-0439-2C41-97702F3864A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C35958AE-F490-0439-2C41-97702F3864A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C35958AE-F490-0439-2C41-97702F3864A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{853EB848-EFCF-3011-123F-DF327A159ECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{853EB848-EFCF-3011-123F-DF327A159ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{853EB848-EFCF-3011-123F-DF327A159ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{853EB848-EFCF-3011-123F-DF327A159ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
