@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/project_scene/make_box.unity
+  isLoaded: 1
+  isActive: 1
