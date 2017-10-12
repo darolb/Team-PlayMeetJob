@@ -7,12 +7,13 @@ namespace Leap.Unity {
   /// allows rotation, translation, and scale of the object (RTS).
   /// </summary>
   public class LeapRTS : MonoBehaviour {
-
+      Renderer rend;
     public enum RotationMethod {
       None,
       Single,
       Full
     }
+        int test=0;
 
     [SerializeField]
     private PinchDetector _pinchDetectorA;
@@ -57,6 +58,7 @@ namespace Leap.Unity {
     private float _defaultNearClip;
 
     void Start() {
+        rend = GetComponent<Renderer>();
 //      if (_pinchDetectorA == null || _pinchDetectorB == null) {
 //        Debug.LogWarning("Both Pinch Detectors of the LeapRTS component must be assigned. This component has been disabled.");
 //        enabled = false;
@@ -69,10 +71,12 @@ namespace Leap.Unity {
     }
 
     void Update() {
-      if (Input.GetKeyDown(_toggleGuiState)) {
-        _showGUI = !_showGUI;
-      }
-
+            
+            /*if (Input.GetKeyDown(_toggleGuiState)) {
+              _showGUI = !_showGUI;
+            }*/
+           // Debug.Log(_pinchDetectorB.tag);
+      if (test == 1) { 
       bool didUpdate = false;
       if(_pinchDetectorA != null)
         didUpdate |= _pinchDetectorA.DidChangeFromLastFrame;
@@ -95,41 +99,11 @@ namespace Leap.Unity {
       if (didUpdate) {
         transform.SetParent(_anchor, true);
       }
+     }
+     test = 0;
     }
-
-    void OnGUI() {
-      if (_showGUI) {
-        GUILayout.Label("One Handed Settings");
-        doRotationMethodGUI(ref _oneHandedRotationMethod);
-        GUILayout.Label("Two Handed Settings");
-        doRotationMethodGUI(ref _twoHandedRotationMethod);
-        _allowScale = GUILayout.Toggle(_allowScale, "Allow Two Handed Scale");
-      }
-    }
-
-    private void doRotationMethodGUI(ref RotationMethod rotationMethod) {
-      GUILayout.BeginHorizontal();
-
-      GUI.color = rotationMethod == RotationMethod.None ? Color.green : Color.white;
-      if (GUILayout.Button("No Rotation")) {
-        rotationMethod = RotationMethod.None;
-      }
-
-      GUI.color = rotationMethod == RotationMethod.Single ? Color.green : Color.white;
-      if (GUILayout.Button("Single Axis")) {
-        rotationMethod = RotationMethod.Single;
-      }
-
-      GUI.color = rotationMethod == RotationMethod.Full ? Color.green : Color.white;
-      if (GUILayout.Button("Full Rotation")) {
-        rotationMethod = RotationMethod.Full;
-      }
-
-      GUI.color = Color.white;
-
-      GUILayout.EndHorizontal();
-    }
-
+   
+    
     private void transformDoubleAnchor() {
       _anchor.position = (_pinchDetectorA.Position + _pinchDetectorB.Position) / 2.0f;
 
@@ -171,5 +145,23 @@ namespace Leap.Unity {
 
       _anchor.localScale = Vector3.one;
     }
-  }
+     
+    void OnTriggerEnter(Collider col)
+    {
+        
+        if (col.gameObject.tag == "rHand")
+        {
+            /*
+            for(int i=0;i<50;i++){
+                test++;
+                Debug.Log(test);
+            }
+            */
+            //if(test == 50)
+            test = 1;
+
+            
+        }   
+     }
+   }
 }

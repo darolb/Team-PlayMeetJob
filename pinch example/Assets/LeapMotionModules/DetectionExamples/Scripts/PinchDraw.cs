@@ -123,13 +123,18 @@ namespace Leap.Unity.DetectionExamples {
         _mesh = new Mesh();
         _mesh.name = "Line Mesh";
         _mesh.MarkDynamic();
+		
+		GameObject line=GameObject.Find("line");
 
         GameObject lineObj = new GameObject("Line Object");
+		//GameObject line = new GameObject("line");
         lineObj.transform.position = Vector3.zero;
         lineObj.transform.rotation = Quaternion.identity;
         lineObj.transform.localScale = Vector3.one;
         lineObj.AddComponent<MeshFilter>().mesh = _mesh;
         lineObj.AddComponent<MeshRenderer>().sharedMaterial = _parent._material;
+		lineObj.tag = "line";
+		lineObj.transform.parent = line.transform;
 
         return lineObj;
       }

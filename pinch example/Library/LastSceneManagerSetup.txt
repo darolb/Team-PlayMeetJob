@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/project_scene/make_box.unity
+- path: Assets/project_scene/real_project/main.unity
   isLoaded: 1
   isActive: 1
